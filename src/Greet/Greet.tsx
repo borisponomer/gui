@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 
 export const Greet = ({ name }: { name?: string }) => {
     const [value, setValue] = useState('')
@@ -6,6 +6,13 @@ export const Greet = ({ name }: { name?: string }) => {
     const changeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
     }
+    
+    useEffect(() => {
+        if (value.length % 10 === 0) {
+            const bigLetters = [...value].filter(char => char.toUpperCase() === char).join('')
+            console.log(bigLetters)
+        }
+    }, [value])
 
     return (
         <div className="jo">
