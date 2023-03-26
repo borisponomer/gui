@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, useEffect } from 'react'
+import { Item } from './Item'
 
 export const Greet = ({ name }: { name?: string }) => {
     const [value, setValue] = useState('')
@@ -19,6 +20,7 @@ export const Greet = ({ name }: { name?: string }) => {
             <p>{name ? `Greet, ${name}!` : 'Greet'}</p>
             <h1 style={{ color: value.length % 2 === 0 ? 'red' : 'blue' }}>{value}</h1>
             <input type="text" onChange={changeInputHandler} />
+            {value.split('').map(letter => <Item key={letter + new Date().getTime()} />)}
         </div>
     )
 }
