@@ -9,7 +9,7 @@ export const Greet = ({ name }: { name?: string }) => {
     
     useEffect(() => {
         if (value.length % 10 === 0) {
-            const bigLetters = [...value].filter(char => char.toUpperCase() === char).join('')
+            const bigLetters = value.split('').filter(char => char.toUpperCase() === char).join('')
             console.log(bigLetters)
         }
     }, [value])
